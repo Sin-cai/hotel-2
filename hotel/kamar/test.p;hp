@@ -1,0 +1,29 @@
+                    <tr>
+                        <td>Jenis Kamar kamar</td>
+                        <td>
+                            <select name="jenis" id="kamarDropdown">
+                                <option value="" disabled selected>Pilih Kamar</option>
+                                <?php
+                                include "koneksi.php";
+                                $query = "SELECT * FROM bed ";
+                                $result = mysqli_query($koneksi, $query);
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $id_bed = $row['roomID'];
+                                    $nama = $row['tipe_kamar'];
+                                    // Masukkan nilai harga ke dalam atribut data-harga
+                                    echo "<option value='$id_bed' >$nama</option>";
+                                }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NO Kamar</td>
+                        <td>
+                            <input type="number" name="room" id="room">
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        
+                        <td><input type="submit" value="SIMPAN" id="submit-booking" /></td>
+                    </tr> -->
